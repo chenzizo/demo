@@ -13,6 +13,24 @@ export default {
   name: "home",
   components: {
     HelloWorld
+  },
+  data() {
+    return {};
+  },
+  mounted() {
+    this.getdata();
+  },
+  methods: {
+    getdata() {
+      this.$axios
+        .req("api/top/song?type=96")
+        .then(res => {
+          console.log(res);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
   }
 };
 </script>
